@@ -1,0 +1,6 @@
+*.o
+.flavor
+.objs
+SingleDownload.so
+assets.h
+cert
