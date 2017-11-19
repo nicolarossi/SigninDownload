@@ -23,9 +23,8 @@ extern "C" int index_page(struct http_request *req) {
             }
         }
 
-        // NOTE: a GET / is redirected to GET /index.html
 
-        // In other case return the index page
+        // In other case return the asset that is required. TODO -> Review.
         serve_asset(req);
 
     } else if (req->method == HTTP_METHOD_POST) {
@@ -60,6 +59,7 @@ extern "C" int index_page(struct http_request *req) {
                 err("ERROR IN SENDING EMAIL ");
             }
 
+            return _serve_file(req, );
             char text[]="Please check your email";
             http_response(req,200,text,strlen(text));
         } else {

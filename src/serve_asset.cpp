@@ -27,6 +27,8 @@ using namespace std;
 
 using namespace singledownload;
 
+
+// NOTE: a GET / is redirected to GET /index.html
 extern "C" int serve_asset(struct http_request *req) {
     http_populate_get(req);
     int rv;
@@ -65,6 +67,7 @@ int _internal_serve_file(struct http_request*req, std::string const &filename) {
         return KORE_RESULT_ERROR;
     }
     stringstream sout;
+
     /* Read template */
     ifstream ifs(filename, ios::binary | ios::ate);
     ifstream::pos_type pos = ifs.tellg();
