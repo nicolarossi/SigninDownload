@@ -1,4 +1,7 @@
-#include <stdio.h>
+#ifdef __cplusplus
+extern "C" {
+#endif
+    #include <stdio.h>
 #include <stdlib.h>
 #include <stdarg.h>
 #include <string.h>
@@ -125,3 +128,7 @@ void warn(const char *fmt, ...) {
 
 	va_end(args);
 }
+
+#ifdef __cplusplus
+}
+#endif

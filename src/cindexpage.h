@@ -15,11 +15,16 @@ namespace singledownload {
         public:
             cindexpage();
 
-            void generate_hash_url(std::string const & email,std::string &hash);
-            bool insert_into_db(std::string const & name,std::string const & surname,std::string const & email,
+            void generate_hash_url(std::string const & email,
+                    std::string &hash);
+            bool insert_into_db(std::string const & name,
+                    std::string const & surname, std::string const & email,
                     std::string & hash);
 
-            bool send_email(std::string const & name,std::string const & surname,std::string const & email);
+            bool send_email(
+                      const std::string& name,
+                      const std::string& surname, const std::string& email,
+                      const std::string& hash) ;
             virtual ~cindexpage();
     };
 

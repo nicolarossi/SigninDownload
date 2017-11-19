@@ -42,9 +42,9 @@ extern "C" int serve_asset(struct http_request *req) {
         string filename ;
 
         if (string("/") != req->path ){
-            filename = configuration::get().HTML_DIR + req->path;
+            filename = configuration::get_instance().HTML_DIR + req->path;
         } else {
-            filename = configuration::get().HTML_DIR + "index.html";
+            filename = configuration::get_instance().HTML_DIR + "index.html";
         }
 
         return _internal_serve_file(req,filename);
