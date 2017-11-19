@@ -31,7 +31,7 @@ namespace singledownload {
             const std::string& surname, const std::string& email) {
         // TODO
         //https://curl.haxx.se/libcurl/c/smtp-mail.html
-
+        return true;
     }
 
     cindexpage::~cindexpage() {

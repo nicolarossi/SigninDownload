@@ -11,13 +11,12 @@ int validate_and_serve_download(struct http_request *req);
 extern "C" int index_page(struct http_request *req) {
     debug("Requesting [%s]",req->path);
     if (req->method == HTTP_METHOD_GET) {
-        int rv;
-        bool bad_parsing = false;
+        int parsing_success;
 
         http_populate_get(req);
-        PARSE_STRING_PARAMETER(hash_email, rv);
+        PARSE_STRING_PARAMETER(hash_email, parsing_success);
 
-        if (rv) { /**/
+        if (parsing_success) { /**/
             // Try to validate the hash_email provided
             if (validate_and_serve_download(req) == KORE_RESULT_OK) {
                 return KORE_RESULT_OK;
@@ -35,6 +34,7 @@ extern "C" int index_page(struct http_request *req) {
         PARSE_STRING_PARAMETER(name,parsing_success);
         PARSE_STRING_PARAMETER(surname,parsing_success);
         PARSE_STRING_PARAMETER(email,parsing_success);
+        PARSE_STRING_PARAMETER(msg,parsing_success);
 
         if (parsing_success) {
             std::string url;
